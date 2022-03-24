@@ -27,7 +27,15 @@ export class MailPage implements OnInit {
   openDetails(id) {
     this.router.navigate(['tabs', 'mail', id]);
   }
+  async openAccount(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: AccountPage,
+      event: ev,
+      cssClass: 'custom-popover'
+  });
  
+    await popover.present();
+}
   // https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript
   private hashCode(str) {
     var hash = 0;
